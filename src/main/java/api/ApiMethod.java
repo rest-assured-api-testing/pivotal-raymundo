@@ -1,12 +1,12 @@
 package api;
 
-public enum RequestType {
+public enum ApiMethod {
     GET("GET"),
     POST("POST"),
     DELETE("DELETE");
     private String name;
 
-    RequestType(String name) {
+    ApiMethod(String name) {
         this.name = name;
     }
 

@@ -1,23 +1,24 @@
 package api;
 
 import io.restassured.http.Header;
+import io.restassured.http.Headers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Request {
+public class ApiRequest {
     private String baseUri;
     private String endpoint;
     private String body;
     private String token;
-    private Enum<RequestType> method;
+    private Enum<ApiMethod> method;
     private List<Header> headers;
     private Map<String, String> queryParams;
     private Map<String, String> pathParams;
 
-    public Request() {
+    public ApiRequest() {
         headers = new ArrayList<>();
         queryParams = new HashMap<>();
         pathParams = new HashMap<>();
@@ -55,35 +56,35 @@ public class Request {
         this.token = token;
     }
 
-    public Enum<RequestType> getMethod() {
+    public Enum<ApiMethod> getMethod() {
         return method;
     }
 
-    public void setMethod(Enum<RequestType> method) {
+    public void setMethod(Enum<ApiMethod> method) {
         this.method = method;
     }
 
-    public List<Header> getHeaders() {
-        return headers;
+    public Headers getHeaders() {
+        return new Headers(headers);
     }
 
-    public void setHeaders(List<Header> headers) {
-        this.headers = headers;
+    public void addHeader(final String header, final String value) {
+        headers.add(new Header(header, value));
     }
 
     public Map<String, String> getQueryParams() {
         return queryParams;
     }
 
-    public void setQueryParams(Map<String, String> queryParams) {
-        this.queryParams = queryParams;
+    public void addQueryParam(final String param, final String value) {
+        queryParams.put(param, value);
     }
 
     public Map<String, String> getPathParams() {
         return pathParams;
     }
 
-    public void setPathParams(Map<String, String> pathParams) {
-        this.pathParams = pathParams;
+    public void addPathParam(final String param, final String value) {
+        pathParams.put(param, value);
     }
 }
