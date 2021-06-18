@@ -77,10 +77,27 @@ public class PivotalProjectsTests {
     }
 
     @Test
+    public void createSingleProjectWithNullName() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName(null);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
     public void createSingleProjectWithIterationLengthAsNegative() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
         pivotalProject.setName("My test project");
         pivotalProject.setIteration_length(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithNumberOfDoneIterationsToShowAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setNumber_of_done_iterations_to_show(-1);
         ApiResponse apiResponse = createProject(pivotalProject);
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
@@ -101,6 +118,15 @@ public class PivotalProjectsTests {
         pivotalProject.setVelocity_averaged_over(-1);
         ApiResponse apiResponse = createProject(pivotalProject);
         Assert.assertEquals(apiResponse.getStatusCode(), 500);
+    }
+
+    @Test
+    public void createSingleProjectWithInitialVelocityAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setInitial_velocity(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
     @Test
