@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "story_type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "current_state": {
+      "type": "string"
+    },
+    "requested_by_id": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "integer"
+    },
+    "owner_ids": {
+      "type": "array",
+      "items": {}
+    },
+    "labels": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "kind",
+    "id",
+    "created_at",
+    "updated_at",
+    "story_type",
+    "name",
+    "current_state",
+    "requested_by_id",
+    "url",
+    "project_id",
+    "owner_ids",
+    "labels"
+  ]
+}
