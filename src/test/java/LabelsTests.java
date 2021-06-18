@@ -1,0 +1,2 @@
+public class LabelsTests {
+}

@@ -2,5 +2,9 @@ AccountTests.java
  AccountTests
 WorkspacesTests.java
  WorkspacesTests
+ActivityTests.java
+ ActivityTests
 PivotalProjectsTests.java
  PivotalProjectsTests
+EpicsTests.java
+ EpicsTests

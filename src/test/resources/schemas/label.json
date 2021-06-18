@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "project_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "id",
+    "project_id",
+    "name",
+    "created_at",
+    "updated_at"
+  ]
+}

@@ -56,7 +56,7 @@ public class PivotalProjectsTests {
 
     @Test(groups = "deleteProject")
     public void deleteSingleProjectTest() {
-        ApiResponse apiResponse = deleteProject("2505845");
+        ApiResponse apiResponse = deleteProject("2505903");
         Assert.assertEquals(apiResponse.getStatusCode(), 204);
     }
 

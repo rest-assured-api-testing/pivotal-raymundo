@@ -33,12 +33,8 @@ public class WorkspacesTests {
         PivotalProject secondPivotalProject = new PivotalProject();
         pivotalProject.setName("My Test Project");
         secondPivotalProject.setName("My Second Test Project");
-        apiRequest.setEndpoint("/projects");
-        apiRequest.setMethod(ApiMethod.POST);
-        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
-        firstProject = ApiManager.executeWithBody(apiRequest).getBody(PivotalProject.class);
-        apiRequest.setBody(new ObjectMapper().writeValueAsString(secondPivotalProject));
-        secondProject = ApiManager.executeWithBody(apiRequest).getBody(PivotalProject.class);
+        firstProject = PivotalProjectsTests.createProject(pivotalProject).getBody(PivotalProject.class);
+        secondProject = PivotalProjectsTests.createProject(secondPivotalProject).getBody(PivotalProject.class);
         apiRequest.setEndpoint("/my/workspaces");
         apiRequest.setMethod(ApiMethod.POST);
         Workspaces workspaces = new Workspaces();
@@ -70,7 +66,6 @@ public class WorkspacesTests {
     public void createWorkspace() throws JsonProcessingException {
         Workspaces workspaces = new Workspaces();
         workspaces.setName("My workspace please");
-//        workspaces.setProject_ids([2505719L,2505720L]);
         workspaces.addProject_id(2505719L);
         workspaces.addProject_id(2505720L);
         apiRequest.setEndpoint("/my/workspaces");
