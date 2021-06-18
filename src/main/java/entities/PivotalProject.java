@@ -1,36 +1,76 @@
 package entities;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PivotalProject {
-    public int project_id;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Long id;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String kind;
     public String name;
-    public String status;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    private int version;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     public int iteration_length;
-    public Enum<WeekDays> week_start_day;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String week_start_day;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String point_scale;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean point_scale_is_custom;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Boolean bugs_and_chores_are_estimatable;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Boolean automatic_planning;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Boolean enable_tasks;
-    public Date start_date;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public TimeZone time_zone;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     public int velocity_averaged_over;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     public int number_of_done_iterations_to_show;
-    public String description;
-    public String profile_content;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean has_google_domain;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Boolean enable_incoming_emails;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     public int initial_velocity;
-    public Enum<ProjectType> project_type;
-    public Boolean public_project;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Boolean public_;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean atom_enabled;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String project_type;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String start_date;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String created_at;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String updated_at;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     public int account_id;
-    public Enum<JoinAs> join_as;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    private int current_iteration_number;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean enable_following;
 
-    public int getProject_id() {
-        return project_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setProject_id(int project_id) {
-        this.project_id = project_id;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 
     public String getName() {
@@ -41,12 +81,12 @@ public class PivotalProject {
         this.name = name;
     }
 
-    public String getStatus() {
-        return status;
+    public int getVersion() {
+        return version;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setVersion(int version) {
+        this.version = version;
     }
 
     public int getIteration_length() {
@@ -57,11 +97,11 @@ public class PivotalProject {
         this.iteration_length = iteration_length;
     }
 
-    public Enum<WeekDays> getWeek_start_day() {
+    public String getWeek_start_day() {
         return week_start_day;
     }
 
-    public void setWeek_start_day(Enum<WeekDays> week_start_day) {
+    public void setWeek_start_day(String week_start_day) {
         this.week_start_day = week_start_day;
     }
 
@@ -71,6 +111,14 @@ public class PivotalProject {
 
     public void setPoint_scale(String point_scale) {
         this.point_scale = point_scale;
+    }
+
+    public Boolean getPoint_scale_is_custom() {
+        return point_scale_is_custom;
+    }
+
+    public void setPoint_scale_is_custom(Boolean point_scale_is_custom) {
+        this.point_scale_is_custom = point_scale_is_custom;
     }
 
     public Boolean getBugs_and_chores_are_estimatable() {
@@ -97,14 +145,6 @@ public class PivotalProject {
         this.enable_tasks = enable_tasks;
     }
 
-    public Date getStart_date() {
-        return start_date;
-    }
-
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
-    }
-
     public TimeZone getTime_zone() {
         return time_zone;
     }
@@ -129,20 +169,12 @@ public class PivotalProject {
         this.number_of_done_iterations_to_show = number_of_done_iterations_to_show;
     }
 
-    public String getDescription() {
-        return description;
+    public Boolean getHas_google_domain() {
+        return has_google_domain;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getProfile_content() {
-        return profile_content;
-    }
-
-    public void setProfile_content(String profile_content) {
-        this.profile_content = profile_content;
+    public void setHas_google_domain(Boolean has_google_domain) {
+        this.has_google_domain = has_google_domain;
     }
 
     public Boolean getEnable_incoming_emails() {
@@ -161,20 +193,52 @@ public class PivotalProject {
         this.initial_velocity = initial_velocity;
     }
 
-    public Enum<ProjectType> getProject_type() {
+    public Boolean getPublic_() {
+        return public_;
+    }
+
+    public void setPublic_(Boolean public_) {
+        this.public_ = public_;
+    }
+
+    public Boolean getAtom_enabled() {
+        return atom_enabled;
+    }
+
+    public void setAtom_enabled(Boolean atom_enabled) {
+        this.atom_enabled = atom_enabled;
+    }
+
+    public String getProject_type() {
         return project_type;
     }
 
-    public void setProject_type(Enum<ProjectType> project_type) {
+    public void setProject_type(String project_type) {
         this.project_type = project_type;
     }
 
-    public Boolean getPublic_project() {
-        return public_project;
+    public String getStart_date() {
+        return start_date;
     }
 
-    public void setPublic_project(Boolean public_project) {
-        this.public_project = public_project;
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 
     public int getAccount_id() {
@@ -185,11 +249,19 @@ public class PivotalProject {
         this.account_id = account_id;
     }
 
-    public Enum<JoinAs> getJoin_as() {
-        return join_as;
+    public int getCurrent_iteration_number() {
+        return current_iteration_number;
     }
 
-    public void setJoin_as(Enum<JoinAs> join_as) {
-        this.join_as = join_as;
+    public void setCurrent_iteration_number(int current_iteration_number) {
+        this.current_iteration_number = current_iteration_number;
+    }
+
+    public Boolean getEnable_following() {
+        return enable_following;
+    }
+
+    public void setEnable_following(Boolean enable_following) {
+        this.enable_following = enable_following;
     }
 }
