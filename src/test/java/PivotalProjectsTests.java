@@ -19,9 +19,7 @@ public class PivotalProjectsTests {
     @BeforeTest
     public void setTokenAndBaseUri() {
         apiRequest = new ApiRequest();
-        ReadPropertyFile readPropertyFile = new ReadPropertyFile();
-        apiRequest.addHeader("X-TrackerToken", readPropertyFile.getToken());
-        apiRequest.setBaseUri(readPropertyFile.getBaseUri());
+        apiRequest = configureTokenAndBaseUri(apiRequest);
     }
 
     @BeforeMethod(onlyForGroups = "getProject")
@@ -45,30 +43,47 @@ public class PivotalProjectsTests {
 
     @AfterMethod(onlyForGroups = "getProject")
     public void deleteCreatedProject() {
-        apiRequest.setEndpoint("/projects/{projectId}");
-        apiRequest.setMethod(ApiMethod.DELETE);
-        apiRequest.addPathParam("projectId", project.getId().toString());
-        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        deleteProject(project.getId().toString());
     }
 
     @Test(groups = "createProject")
     public void createSingleProjectTest() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
         pivotalProject.setName("My test project");
-        apiRequest.setEndpoint("/projects");
-        apiRequest.setMethod(ApiMethod.POST);
-        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
-        ApiResponse apiResponse = ApiManager.executeWithBody(apiRequest);
+        ApiResponse apiResponse = createProject(pivotalProject);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
     @Test(groups = "deleteProject")
     public void deleteSingleProjectTest() {
-        apiRequest.setEndpoint("/projects/{projectId}");
-        apiRequest.setMethod(ApiMethod.DELETE);
-        apiRequest.addPathParam("projectId", "2505613");
-        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        ApiResponse apiResponse = deleteProject("2505845");
         Assert.assertEquals(apiResponse.getStatusCode(), 204);
     }
 
+    public static ApiRequest configureTokenAndBaseUri(ApiRequest apiRequest) {
+        ReadPropertyFile readPropertyFile = new ReadPropertyFile();
+        apiRequest.addHeader("X-TrackerToken", readPropertyFile.getToken());
+        apiRequest.setBaseUri(readPropertyFile.getBaseUri());
+        return apiRequest;
+    }
+
+    public static ApiResponse createProject(PivotalProject pivotalProject) throws JsonProcessingException {
+        ApiRequest apiRequest = new ApiRequest();
+        apiRequest = configureTokenAndBaseUri(apiRequest);
+        apiRequest.setEndpoint("/projects");
+        apiRequest.setMethod(ApiMethod.POST);
+        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
+        ApiResponse apiResponse = ApiManager.executeWithBody(apiRequest);
+        return apiResponse;
+    }
+
+    public static ApiResponse deleteProject(String projectId) {
+        ApiRequest apiRequest = new ApiRequest();
+        apiRequest = configureTokenAndBaseUri(apiRequest);
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.DELETE);
+        apiRequest.addPathParam("projectId", projectId);
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        return  apiResponse;
+    }
 }
