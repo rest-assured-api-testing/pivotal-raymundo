@@ -59,7 +59,13 @@ public class PivotalProjectsTests {
         PivotalProject pivotalProject = new PivotalProject();
         pivotalProject.setName("My test project");
         ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @AfterMethod(onlyForGroups = "createProject")
+    public void deleteCreatedProjectForGroupCreateProject() {
+        deleteProject(project.getId().toString());
     }
 
     @Test
@@ -71,6 +77,33 @@ public class PivotalProjectsTests {
     }
 
     @Test
+    public void createSingleProjectWithIterationLengthAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setIteration_length(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Mon");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithVelocityAveragedOverAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setVelocity_averaged_over(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 500);
+    }
+
+    @Test
     public void createSingleProjectWithLargeName() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
         pivotalProject.setName("Long tittle example to test more than 50 characters");
@@ -78,9 +111,30 @@ public class PivotalProjectsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
+    @Test
+    public void createSingleProjectWithLargePointScale() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setPoint_scale("Long point scale example to test more than 255 characters. Apart from " +
+                "counting words and characters, our online editor can help you to improve word choice and writing " +
+                "style, and, optionally, help you to detect grammar mistakes and plagiarism.  To check word ");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @BeforeMethod(onlyForGroups = "deleteProject")
+    public void createProjectForDeleteProjectGroup() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        apiRequest.setEndpoint("/projects");
+        apiRequest.setMethod(ApiMethod.POST);
+        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
+        project = ApiManager.executeWithBody(apiRequest).getBody(PivotalProject.class);
+    }
+
     @Test(groups = "deleteProject")
     public void deleteSingleProjectTest() {
-        ApiResponse apiResponse = deleteProject("2505917");
+        ApiResponse apiResponse = deleteProject(project.getId().toString());
         Assert.assertEquals(apiResponse.getStatusCode(), 204);
     }
 
