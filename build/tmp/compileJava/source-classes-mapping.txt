@@ -16,9 +16,11 @@ api/ApiRequest.java
  api.ApiRequest
 api/ApiManager.java
  api.ApiManager
-entities/Labels.java
- entities.Labels
 entities/Activity.java
  entities.Activity
+entities/Labels.java
+ entities.Labels
 entities/Epics.java
  entities.Epics
+entities/Stories.java
+ entities.Stories
