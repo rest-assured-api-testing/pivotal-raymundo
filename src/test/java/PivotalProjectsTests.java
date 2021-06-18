@@ -41,6 +41,14 @@ public class PivotalProjectsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    @Test(groups = "getProject")
+    public void createProjectWithRepeatedTittle() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
     @AfterMethod(onlyForGroups = "getProject")
     public void deleteCreatedProject() {
         deleteProject(project.getId().toString());
@@ -54,9 +62,25 @@ public class PivotalProjectsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    @Test
+    public void createSingleProjectWithEmptyName() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithLargeName() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("Long tittle example to test more than 50 characters");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
     @Test(groups = "deleteProject")
     public void deleteSingleProjectTest() {
-        ApiResponse apiResponse = deleteProject("2505916");
+        ApiResponse apiResponse = deleteProject("2505917");
         Assert.assertEquals(apiResponse.getStatusCode(), 204);
     }
 

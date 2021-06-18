@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PivotalProjectsTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-18T11:17:50" hostname="GUARAGUARA" time="5.103">
+  <properties/>
+  <testcase name="createSingleProjectWithLargeName" classname="PivotalProjectsTests" time="5.103"/>
+  <system-out><![CDATA[Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "Long tittle example to test more than 50 characters"
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
