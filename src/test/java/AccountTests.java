@@ -28,4 +28,13 @@ public class AccountTests {
         ApiResponse apiResponse = ApiManager.execute(apiRequest);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
+
+    @Test
+    public void checkAccountSchema() {
+        apiRequest.setEndpoint("/accounts/{accountId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("accountId", accountId);
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/account.json");
+    }
 }

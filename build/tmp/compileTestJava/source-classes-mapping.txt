@@ -1,5 +1,5 @@
-AccountTests.java
- AccountTests
+EpicsTests.java
+ EpicsTests
 WorkspacesTests.java
  WorkspacesTests
 ActivityTests.java
@@ -10,5 +10,5 @@ LabelsTests.java
  LabelsTests
 StoriesTests.java
  StoriesTests
-EpicsTests.java
- EpicsTests
+AccountTests.java
+ AccountTests
