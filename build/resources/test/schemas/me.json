@@ -1,0 +1,193 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "initials": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "time_zone": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "olson_name": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "olson_name",
+        "offset"
+      ]
+    },
+    "api_token": {
+      "type": "string"
+    },
+    "has_google_identity": {
+      "type": "boolean"
+    },
+    "accounts": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "days_left": {
+              "type": "integer"
+            },
+            "plan": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "name",
+            "status",
+            "days_left",
+            "plan"
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "project_id": {
+              "type": "integer"
+            },
+            "project_name": {
+              "type": "string"
+            },
+            "project_color": {
+              "type": "string"
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "role": {
+              "type": "string"
+            },
+            "last_viewed_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "project_id",
+            "project_name",
+            "project_color",
+            "favorite",
+            "role",
+            "last_viewed_at"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "project_id": {
+              "type": "integer"
+            },
+            "project_name": {
+              "type": "string"
+            },
+            "project_color": {
+              "type": "string"
+            },
+            "favorite": {
+              "type": "boolean"
+            },
+            "role": {
+              "type": "string"
+            },
+            "last_viewed_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "project_id",
+            "project_name",
+            "project_color",
+            "favorite",
+            "role",
+            "last_viewed_at"
+          ]
+        }
+      ]
+    },
+    "email": {
+      "type": "string"
+    },
+    "receives_in_app_notifications": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "id",
+    "name",
+    "initials",
+    "username",
+    "time_zone",
+    "api_token",
+    "has_google_identity",
+    "accounts",
+    "projects",
+    "email",
+    "receives_in_app_notifications",
+    "created_at",
+    "updated_at"
+  ]
+}

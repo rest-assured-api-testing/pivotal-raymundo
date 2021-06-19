@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class LabelsTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class LabelsTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; LabelsTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">6.660s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">checkLabelSchema</td>
+<td class="success">1.394s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createLabelWithEmptyName</td>
+<td class="success">0.607s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createLabelWithNameLongerThan255Characters</td>
+<td class="success">0.501s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createLabelWithNullName</td>
+<td class="success">0.610s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createLabelWithRepeatedName</td>
+<td class="success">0.547s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createSingleLabelTest</td>
+<td class="success">0.659s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteSingleLabel</td>
+<td class="success">0.671s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getSingleLabelOnProject</td>
+<td class="success">0.531s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getSingleLabelOnProjectWithInvalidLabelId</td>
+<td class="success">0.664s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getSingleLabelOnProjectWithInvalidProjectId</td>
+<td class="success">0.476s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509938/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509938
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test Label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509938/labels/23172555
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172555
+				projectId=2509938
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+{
+    &quot;kind&quot;: &quot;label&quot;,
+    &quot;id&quot;: 23172555,
+    &quot;project_id&quot;: 2509938,
+    &quot;name&quot;: &quot;my test label&quot;,
+    &quot;created_at&quot;: &quot;2021-06-19T17:28:30Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-06-19T17:28:30Z&quot;
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509938/labels/23172555
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172555
+				projectId=2509938
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509938
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509938
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509939/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509939
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509939/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509939
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509939
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509939
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509940/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509940
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509940/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509940
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test labels example to test more than 255 characters. Apart from counting words and characters, our online editor can help you to improve word choice and writing style, and, optionally, help you to detect grammar mistakes and plagiarism.  To check words.&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509940
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509940
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509941/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509941
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509941/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509941
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: null,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509941
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509941
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509942/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509942
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509942/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509942
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509942
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509942
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509943/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509943
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509943/labels/23172560
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172560
+				projectId=2509943
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509943
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509943
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509944/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509944
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509944/labels/23172561
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172561
+				projectId=2509944
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509944
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509944
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509945/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509945
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test Label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509945/labels/23172562
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172562
+				projectId=2509945
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509945/labels/23172562
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172562
+				projectId=2509945
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509945
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509945
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509946/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509946
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test Label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509946/labels/InvalidLabelId
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=InvalidLabelId
+				projectId=2509946
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509946/labels/23172563
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172563
+				projectId=2509946
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509946
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509946
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	&lt;none&gt;
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;name&quot;: &quot;My Test Project&quot;
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509947/labels
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509947
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:
+{
+    &quot;kind&quot;: null,
+    &quot;id&quot;: null,
+    &quot;project_id&quot;: null,
+    &quot;name&quot;: &quot;My test Label&quot;,
+    &quot;created_at&quot;: null,
+    &quot;updated_at&quot;: null
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/InvalidProjectId/labels/23172564
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172564
+				projectId=InvalidProjectId
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509947/labels/23172564
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	labelId=23172564
+				projectId=2509947
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2509947
+Proxy:			&lt;none&gt;
+Request params:	&lt;none&gt;
+Query params:	&lt;none&gt;
+Form params:	&lt;none&gt;
+Path params:	projectId=2509947
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		&lt;none&gt;
+Multiparts:		&lt;none&gt;
+Body:			&lt;none&gt;
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8</a> at Jun 19, 2021, 1:28:59 PM</p>
+</div>
+</div>
+</body>
+</html>

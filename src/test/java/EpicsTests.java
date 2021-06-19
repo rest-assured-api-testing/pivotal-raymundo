@@ -18,17 +18,17 @@ public class EpicsTests {
     PivotalProject project = new PivotalProject();
     Epics epic = new Epics();
 
+    @AfterMethod
+    public void clearPathParamValues() {
+        apiRequest.cleanPathParam();
+    }
+
     @BeforeTest
     public void setTokenAndBaseUri() {
         apiRequest = new ApiRequest();
         ReadPropertyFile readPropertyFile = new ReadPropertyFile();
         apiRequest.addHeader("X-TrackerToken", readPropertyFile.getToken());
         apiRequest.setBaseUri(readPropertyFile.getBaseUri());
-    }
-
-    @AfterMethod
-    public void clearPathParamValues() {
-        apiRequest.cleanPathParam();
     }
 
     @BeforeMethod(onlyForGroups = "getEpic")
@@ -91,6 +91,36 @@ public class EpicsTests {
         ApiResponse apiResponse = createEpic(newEpic, project.getId().toString());
         epic = apiResponse.getBody(Epics.class);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @BeforeMethod(onlyForGroups = "onlyProject")
+    public void createProjectForOnlyProjectGroup() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        project = PivotalProjectsTests.createProject(pivotalProject).getBody(PivotalProject.class);
+    }
+
+    @Test(groups = "onlyProject")
+    public void createSingleEpicWithEmptyTittle() throws JsonProcessingException {
+        Epics newEpic = new Epics();
+        newEpic.setName("");
+        ApiResponse apiResponse = createEpic(newEpic, project.getId().toString());
+        epic = apiResponse.getBody(Epics.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "onlyProject")
+    public void createSingleEpicWithNullTittle() throws JsonProcessingException {
+        Epics newEpic = new Epics();
+        newEpic.setName(null);
+        ApiResponse apiResponse = createEpic(newEpic, project.getId().toString());
+        epic = apiResponse.getBody(Epics.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @AfterMethod(onlyForGroups = "onlyProject")
+    public void deleteCreatedProjectOnGroupOnlyProject() {
+        ApiResponse apiResponse = PivotalProjectsTests.deleteProject(project.getId().toString());
     }
 
     @AfterMethod(onlyForGroups = "createEpic")

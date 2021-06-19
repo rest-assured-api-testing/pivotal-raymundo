@@ -2,15 +2,19 @@ import api.ApiManager;
 import api.ApiMethod;
 import api.ApiRequest;
 import api.ApiResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import entities.PivotalProject;
 import entities.ReadPropertyFile;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AccountTests {
     private ApiRequest apiRequest;
     private String accountId;
+    private PivotalProject project = new PivotalProject();
 
     @BeforeTest
     public void setTokenAndBaseUri() {
@@ -131,5 +135,61 @@ public class AccountTests {
         apiRequest.addPathParam("accountId", accountId);
         ApiResponse apiResponse = ApiManager.execute(apiRequest);
         apiResponse.validateBodySchema("schemas/account.json");
+    }
+
+    @Test
+    public void getMe() {
+        apiRequest.setEndpoint("/me");
+        apiRequest.setMethod(ApiMethod.GET);
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test
+    public void checkMeSchema() {
+        apiRequest.setEndpoint("/me");
+        apiRequest.setMethod(ApiMethod.GET);
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/me.json");
+    }
+
+    @BeforeMethod(onlyForGroups = "project")
+    public void createProjects() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        ApiResponse apiResponse = PivotalProjectsTests.createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+    }
+
+    @AfterMethod(onlyForGroups = "project")
+    public void deleteCreatedProject() {
+        PivotalProjectsTests.deleteProject(project.getId().toString());
+    }
+
+    @Test(groups = "project")
+    public void getMyPeople() {
+        apiRequest.setEndpoint("/my/people");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addQueryParam("project_id", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test
+    public void getMyPeopleWithInvalidProjectId() {
+        apiRequest.setEndpoint("/my/people");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addQueryParam("project_id", "InvalidProjectId");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "project")
+    public void checkMyPeopleSchema() {
+        apiRequest.setEndpoint("/my/people");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addQueryParam("project_id", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/mypeople.json");
     }
 }
