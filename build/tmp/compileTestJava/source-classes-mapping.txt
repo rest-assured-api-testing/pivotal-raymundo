@@ -1,14 +1,16 @@
-EpicsTests.java
- EpicsTests
 WorkspacesTests.java
  WorkspacesTests
+AccountTests.java
+ AccountTests
 ActivityTests.java
  ActivityTests
 PivotalProjectsTests.java
  PivotalProjectsTests
-LabelsTests.java
- LabelsTests
 StoriesTests.java
  StoriesTests
-AccountTests.java
- AccountTests
+LabelsTests.java
+ LabelsTests
+AccountMembershipTests.java
+ AccountMembershipTests
+EpicsTests.java
+ EpicsTests

@@ -26,6 +26,11 @@ public class EpicsTests {
         apiRequest.setBaseUri(readPropertyFile.getBaseUri());
     }
 
+    @AfterMethod
+    public void clearPathParamValues() {
+        apiRequest.cleanPathParam();
+    }
+
     @BeforeMethod(onlyForGroups = "getEpic")
     public void createSingleProjectAndEpic() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
@@ -46,24 +51,83 @@ public class EpicsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    @Test(groups = "getEpic")
+    public void getSingleEpicOnProjectWithInvalidEpicId() {
+        apiRequest.setEndpoint("/projects/{projectId}/epics/{epicId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addPathParam("epicId", "InvalidEpicId");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "getEpic")
+    public void getSingleEpicOnProjectWithInvalidProjectId() {
+        apiRequest.setEndpoint("/projects/{projectId}/epics/{epicId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", "InvalidProjectId");
+        apiRequest.addPathParam("epicId", epic.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 404);
+    }
+
     @AfterMethod(onlyForGroups = "getEpic")
     public void deleteCreatedProjectAndEpic() {
         ApiResponse apiResponse = deleteEpic(epic.getId().toString(), project.getId().toString());
         apiResponse = PivotalProjectsTests.deleteProject(project.getId().toString());
     }
 
+    @BeforeMethod(onlyForGroups = "createEpic")
+    public void createProject() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        project = PivotalProjectsTests.createProject(pivotalProject).getBody(PivotalProject.class);
+    }
+
     @Test(groups = "createEpic")
     public void createSingleEpicTest() throws JsonProcessingException {
-        Epics epic = new Epics();
-        epic.setName("My test epic");
-        ApiResponse apiResponse = createEpic(epic, project.getId().toString());
+        Epics newEpic = new Epics();
+        newEpic.setName("My test epic");
+        ApiResponse apiResponse = createEpic(newEpic, project.getId().toString());
+        epic = apiResponse.getBody(Epics.class);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @AfterMethod(onlyForGroups = "createEpic")
+    public void deleteCreatedProjectAndEpicOnGroupCreateEpic() {
+        ApiResponse apiResponse = deleteEpic(epic.getId().toString(), project.getId().toString());
+        apiResponse = PivotalProjectsTests.deleteProject(project.getId().toString());
+    }
+
+    @BeforeMethod(onlyForGroups = "deleteEpic")
+    public void createProjectAndEpicOnGroupDeleteEpic() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        project = PivotalProjectsTests.createProject(pivotalProject).getBody(PivotalProject.class);
+        Epics newEpic = new Epics();
+        newEpic.setName("My test epic");
+        epic = createEpic(newEpic, project.getId().toString()).getBody(Epics.class);
     }
 
     @Test(groups = "deleteEpic")
     public void deleteSingleEpic() {
-        ApiResponse apiResponse = deleteEpic("4790988", "2505903");
+        ApiResponse apiResponse = deleteEpic(epic.getId().toString(), project.getId().toString());
         Assert.assertEquals(apiResponse.getStatusCode(), 204);
+    }
+
+    @AfterMethod(onlyForGroups = "deleteEpic")
+    public void deleteCreatedProjectAndEpicOnGroupDeleteEpic() {
+        ApiResponse apiResponse = PivotalProjectsTests.deleteProject(project.getId().toString());
+    }
+
+    @Test(groups = "getEpic")
+    public void checkEpicSchema() {
+        apiRequest.setEndpoint("/projects/{projectId}/epics/{epicId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addPathParam("epicId", epic.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/epic.json");
     }
 
     public static ApiResponse createEpic(Epics epic, String projectId) throws JsonProcessingException {

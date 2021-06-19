@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "initials": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "name",
+        "email",
+        "initials",
+        "username"
+      ]
+    },
+    "account_id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "boolean"
+    },
+    "admin": {
+      "type": "boolean"
+    },
+    "project_creator": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "kind",
+    "id",
+    "person",
+    "account_id",
+    "created_at",
+    "updated_at",
+    "owner",
+    "admin",
+    "project_creator"
+  ]
+}

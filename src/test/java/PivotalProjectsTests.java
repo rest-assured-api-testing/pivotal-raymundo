@@ -42,6 +42,24 @@ public class PivotalProjectsTests {
     }
 
     @Test(groups = "getProject")
+    public void getSingleProjectTestSchema() {
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/pivotalproject.json");
+    }
+
+    @Test
+    public void getSingleProjectWithInvalidProjectId() {
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", "InvalidId");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 404);
+    }
+
+    @Test(groups = "getProject")
     public void createProjectWithRepeatedTittle() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
         pivotalProject.setName("My Test Project");

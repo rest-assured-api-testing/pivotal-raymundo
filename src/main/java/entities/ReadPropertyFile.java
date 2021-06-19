@@ -33,4 +33,8 @@ public class ReadPropertyFile {
     public String getAccountId() {
         return prop.getProperty("accountId");
     }
+
+    public String getPersonId() {
+        return prop.getProperty("personId");
+    }
 }

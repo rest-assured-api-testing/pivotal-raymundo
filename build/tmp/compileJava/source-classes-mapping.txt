@@ -10,17 +10,21 @@ entities/Account.java
  entities.Account
 entities/PivotalProject.java
  entities.PivotalProject
-entities/ReadPropertyFile.java
- entities.ReadPropertyFile
-api/ApiRequest.java
- api.ApiRequest
-api/ApiManager.java
- api.ApiManager
+entities/AccountMembership.java
+ entities.AccountMembership
+entities/Stories.java
+ entities.Stories
+entities/Epics.java
+ entities.Epics
 entities/Activity.java
  entities.Activity
 entities/Labels.java
  entities.Labels
-entities/Epics.java
- entities.Epics
-entities/Stories.java
- entities.Stories
+api/ApiRequest.java
+ api.ApiRequest
+api/ApiManager.java
+ api.ApiManager
+entities/Person.java
+ entities.Person
+entities/ReadPropertyFile.java
+ entities.ReadPropertyFile

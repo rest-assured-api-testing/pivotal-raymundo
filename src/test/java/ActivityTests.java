@@ -23,6 +23,11 @@ public class ActivityTests {
         apiRequest.setBaseUri(readPropertyFile.getBaseUri());
     }
 
+    @AfterMethod
+    public void clearPathParamValues() {
+        apiRequest.cleanPathParam();
+    }
+
     @Test
     public void getAllActivity() {
         apiRequest.setEndpoint("/my/activity");
@@ -45,6 +50,24 @@ public class ActivityTests {
         apiRequest.addPathParam("projectId", project.getId().toString());
         ApiResponse apiResponse = ApiManager.execute(apiRequest);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test
+    public void getActivityOnInvalidProjectId() {
+        apiRequest.setEndpoint("/projects/{projectId}/activity");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", "InvalidProjectId");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 404);
+    }
+
+    @Test(groups = "getActivity")
+    public void checkProjectActivitySchema() {
+        apiRequest.setEndpoint("/projects/{projectId}/activity");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/activity.json");
     }
 
     @AfterMethod(onlyForGroups = "getActivity")
