@@ -1,0 +1,470 @@
+import api.ApiManager;
+import api.ApiMethod;
+import api.ApiRequest;
+import api.ApiResponse;
+import entities.PivotalProject;
+import entities.ReadPropertyFile;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class PivotalProjectsTests {
+    private ApiRequest apiRequest;
+    PivotalProject project = new PivotalProject();
+
+    @BeforeTest
+    public void setTokenAndBaseUri() {
+        apiRequest = new ApiRequest();
+        apiRequest = configureTokenAndBaseUri(apiRequest);
+    }
+
+    @AfterMethod
+    public void clearPathParamValues() {
+        apiRequest.cleanPathParam();
+        apiRequest.cleanQueryParam();
+    }
+
+    @BeforeMethod(onlyForGroups = "getProject")
+    public void createProjects() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        apiRequest.setEndpoint("/projects");
+        apiRequest.setMethod(ApiMethod.POST);
+        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
+        project = ApiManager.executeWithBody(apiRequest).getBody(PivotalProject.class);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectTest() {
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterations() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithDoneScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "done");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithCurrentScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "current");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithBacklogScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "backlog");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithCurrentBacklogScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "current_backlog");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithDoneCurrentScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "done_current");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithInvalidScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "InvalidValue");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleases() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithAcceptedState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "accepted");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithUnstartedState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "unstarted");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithUnscheduledState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "unscheduled");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithPlanedState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "planned");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithInvalidState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "InvalidValue");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectTestSchema() {
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        apiResponse.validateBodySchema("schemas/pivotalproject.json");
+    }
+
+    @Test
+    public void getSingleProjectWithInvalidProjectId() {
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", "InvalidId");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 404);
+    }
+
+    @Test(groups = "getProject")
+    public void createProjectWithRepeatedTittle() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @AfterMethod(onlyForGroups = "getProject")
+    public void deleteCreatedProject() {
+        deleteProject(project.getId().toString());
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectTest() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @AfterMethod(onlyForGroups = "createProject")
+    public void deleteCreatedProjectForGroupCreateProject() {
+        deleteProject(project.getId().toString());
+    }
+
+    @Test
+    public void createSingleProjectWithEmptyName() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithNullName() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName(null);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithIterationLengthAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setIteration_length(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithNumberOfDoneIterationsToShowAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setNumber_of_done_iterations_to_show(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("InvalidValue");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithSundayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Sunday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithMondayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Monday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithTuesdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Tuesday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithWednesdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Wednesday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithThursdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Thursday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithFridayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Friday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithSaturdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Saturday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test
+    public void createSingleProjectWithVelocityAveragedOverAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setVelocity_averaged_over(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 500);
+    }
+
+    @Test
+    public void createSingleProjectWithInitialVelocityAsNegative() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setInitial_velocity(-1);
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithLargeName() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("Long tittle example to test more than 50 characters");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidMonthStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-13-15T21:42:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidDayStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T21:42:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidHourStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T25:42:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidMinuteStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T21:61:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidSecondStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T21:45:61Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithValidStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-14T07:00:00Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test
+    public void createSingleProjectWithLargePointScale() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setPoint_scale("Long point scale example to test more than 255 characters. Apart from " +
+                "counting words and characters, our online editor can help you to improve word choice and writing " +
+                "style, and, optionally, help you to detect grammar mistakes and plagiarism.  To check word ");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @BeforeMethod(onlyForGroups = "deleteProject")
+    public void createProjectForDeleteProjectGroup() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My Test Project");
+        apiRequest.setEndpoint("/projects");
+        apiRequest.setMethod(ApiMethod.POST);
+        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
+        project = ApiManager.executeWithBody(apiRequest).getBody(PivotalProject.class);
+    }
+
+    @Test(groups = "deleteProject")
+    public void deleteSingleProjectTest() {
+        ApiResponse apiResponse = deleteProject(project.getId().toString());
+        Assert.assertEquals(apiResponse.getStatusCode(), 204);
+    }
+
+    public static ApiRequest configureTokenAndBaseUri(ApiRequest apiRequest) {
+        ReadPropertyFile readPropertyFile = new ReadPropertyFile();
+        apiRequest.addHeader("X-TrackerToken", readPropertyFile.getToken());
+        apiRequest.setBaseUri(readPropertyFile.getBaseUri());
+        return apiRequest;
+    }
+
+    public static ApiResponse createProject(PivotalProject pivotalProject) throws JsonProcessingException {
+        ApiRequest apiRequest = new ApiRequest();
+        apiRequest = configureTokenAndBaseUri(apiRequest);
+        apiRequest.setEndpoint("/projects");
+        apiRequest.setMethod(ApiMethod.POST);
+        apiRequest.setBody(new ObjectMapper().writeValueAsString(pivotalProject));
+        ApiResponse apiResponse = ApiManager.executeWithBody(apiRequest);
+        return apiResponse;
+    }
+
+    public static ApiResponse deleteProject(String projectId) {
+        ApiRequest apiRequest = new ApiRequest();
+        apiRequest = configureTokenAndBaseUri(apiRequest);
+        apiRequest.setEndpoint("/projects/{projectId}");
+        apiRequest.setMethod(ApiMethod.DELETE);
+        apiRequest.addPathParam("projectId", projectId);
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        return  apiResponse;
+    }
+}

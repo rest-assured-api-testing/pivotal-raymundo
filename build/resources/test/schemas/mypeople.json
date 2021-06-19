@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "person": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "initials": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "name",
+            "email",
+            "initials",
+            "username"
+          ]
+        },
+        "collaboration_factor": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "person",
+        "collaboration_factor"
+      ]
+    }
+  ]
+}
