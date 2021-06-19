@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PivotalProjectsTests" tests="41" skipped="0" failures="0" errors="0" timestamp="2021-06-19T20:40:05" hostname="GUARAGUARA" time="55.285">
+  <properties/>
+  <testcase name="createProjectWithRepeatedTittle" classname="PivotalProjectsTests" time="0.649"/>
+  <testcase name="createSingleProjectTest" classname="PivotalProjectsTests" time="0.949"/>
+  <testcase name="createSingleProjectWithEmptyName" classname="PivotalProjectsTests" time="0.754"/>
+  <testcase name="createSingleProjectWithFridayWeekStartDay" classname="PivotalProjectsTests" time="0.676"/>
+  <testcase name="createSingleProjectWithInitialVelocityAsNegative" classname="PivotalProjectsTests" time="0.52"/>
+  <testcase name="createSingleProjectWithInvalidDayStartDate" classname="PivotalProjectsTests" time="0.538"/>
+  <testcase name="createSingleProjectWithInvalidHourStartDate" classname="PivotalProjectsTests" time="0.626"/>
+  <testcase name="createSingleProjectWithInvalidMinuteStartDate" classname="PivotalProjectsTests" time="0.514"/>
+  <testcase name="createSingleProjectWithInvalidMonthStartDate" classname="PivotalProjectsTests" time="0.57"/>
+  <testcase name="createSingleProjectWithInvalidSecondStartDate" classname="PivotalProjectsTests" time="0.588"/>
+  <testcase name="createSingleProjectWithInvalidWeekStartDay" classname="PivotalProjectsTests" time="0.569"/>
+  <testcase name="createSingleProjectWithIterationLengthAsNegative" classname="PivotalProjectsTests" time="0.676"/>
+  <testcase name="createSingleProjectWithLargeName" classname="PivotalProjectsTests" time="0.517"/>
+  <testcase name="createSingleProjectWithLargePointScale" classname="PivotalProjectsTests" time="0.575"/>
+  <testcase name="createSingleProjectWithMondayWeekStartDay" classname="PivotalProjectsTests" time="0.719"/>
+  <testcase name="createSingleProjectWithNullName" classname="PivotalProjectsTests" time="0.513"/>
+  <testcase name="createSingleProjectWithNumberOfDoneIterationsToShowAsNegative" classname="PivotalProjectsTests" time="0.547"/>
+  <testcase name="createSingleProjectWithSaturdayWeekStartDay" classname="PivotalProjectsTests" time="0.711"/>
+  <testcase name="createSingleProjectWithSundayWeekStartDay" classname="PivotalProjectsTests" time="0.728"/>
+  <testcase name="createSingleProjectWithThursdayWeekStartDay" classname="PivotalProjectsTests" time="0.739"/>
+  <testcase name="createSingleProjectWithTuesdayWeekStartDay" classname="PivotalProjectsTests" time="0.676"/>
+  <testcase name="createSingleProjectWithValidStartDate" classname="PivotalProjectsTests" time="0.658"/>
+  <testcase name="createSingleProjectWithVelocityAveragedOverAsNegative" classname="PivotalProjectsTests" time="0.521"/>
+  <testcase name="createSingleProjectWithWednesdayWeekStartDay" classname="PivotalProjectsTests" time="0.745"/>
+  <testcase name="deleteSingleProjectTest" classname="PivotalProjectsTests" time="0.626"/>
+  <testcase name="getSingleProjectIterations" classname="PivotalProjectsTests" time="0.554"/>
+  <testcase name="getSingleProjectIterationsWithBacklogScope" classname="PivotalProjectsTests" time="0.641"/>
+  <testcase name="getSingleProjectIterationsWithCurrentBacklogScope" classname="PivotalProjectsTests" time="0.586"/>
+  <testcase name="getSingleProjectIterationsWithCurrentScope" classname="PivotalProjectsTests" time="0.56"/>
+  <testcase name="getSingleProjectIterationsWithDoneCurrentScope" classname="PivotalProjectsTests" time="0.535"/>
+  <testcase name="getSingleProjectIterationsWithDoneScope" classname="PivotalProjectsTests" time="0.521"/>
+  <testcase name="getSingleProjectIterationsWithInvalidScope" classname="PivotalProjectsTests" time="0.524"/>
+  <testcase name="getSingleProjectReleases" classname="PivotalProjectsTests" time="0.63"/>
+  <testcase name="getSingleProjectReleasesWithAcceptedState" classname="PivotalProjectsTests" time="0.522"/>
+  <testcase name="getSingleProjectReleasesWithInvalidState" classname="PivotalProjectsTests" time="0.537"/>
+  <testcase name="getSingleProjectReleasesWithPlanedState" classname="PivotalProjectsTests" time="0.648"/>
+  <testcase name="getSingleProjectReleasesWithUnscheduledState" classname="PivotalProjectsTests" time="0.516"/>
+  <testcase name="getSingleProjectReleasesWithUnstartedState" classname="PivotalProjectsTests" time="0.508"/>
+  <testcase name="getSingleProjectTest" classname="PivotalProjectsTests" time="0.597"/>
+  <testcase name="getSingleProjectTestSchema" classname="PivotalProjectsTests" time="1.899"/>
+  <testcase name="getSingleProjectWithInvalidProjectId" classname="PivotalProjectsTests" time="0.475"/>
+  <system-out><![CDATA[Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510907
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510907
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510910
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510910
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": ""
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Friday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510912
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510912
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "initial_velocity": -1
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "start_date": "2021-06-32T21:42:52Z"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "start_date": "2021-06-32T25:42:52Z"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "start_date": "2021-06-32T21:61:52Z"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "start_date": "2021-13-15T21:42:52Z"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "start_date": "2021-06-32T21:45:61Z"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "InvalidValue"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "iteration_length": -1
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "Long tittle example to test more than 50 characters"
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "point_scale": "Long point scale example to test more than 255 characters. Apart from counting words and characters, our online editor can help you to improve word choice and writing style, and, optionally, help you to detect grammar mistakes and plagiarism.  To check word "
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Monday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510917
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510917
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": null
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "number_of_done_iterations_to_show": -1
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Saturday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510919
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510919
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Sunday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510921
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510921
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Thursday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510923
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510923
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Tuesday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510925
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510925
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "start_date": "2021-06-14T07:00:00Z"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510926
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510926
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "velocity_averaged_over": -1
+}
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My test project",
+    "week_start_day": "Wednesday"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510928
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510928
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510930
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510930
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510931/iterations
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510931
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510931
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510931
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510933/iterations?scope=backlog
+Proxy:			<none>
+Request params:	<none>
+Query params:	scope=backlog
+Form params:	<none>
+Path params:	projectId=2510933
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510933
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510933
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510937/iterations?scope=current_backlog
+Proxy:			<none>
+Request params:	<none>
+Query params:	scope=current_backlog
+Form params:	<none>
+Path params:	projectId=2510937
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510937
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510937
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510940/iterations?scope=current
+Proxy:			<none>
+Request params:	<none>
+Query params:	scope=current
+Form params:	<none>
+Path params:	projectId=2510940
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510940
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510940
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510942/iterations?scope=done_current
+Proxy:			<none>
+Request params:	<none>
+Query params:	scope=done_current
+Form params:	<none>
+Path params:	projectId=2510942
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510942
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510942
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510944/iterations?scope=done
+Proxy:			<none>
+Request params:	<none>
+Query params:	scope=done
+Form params:	<none>
+Path params:	projectId=2510944
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510944
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510944
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510947/iterations?scope=InvalidValue
+Proxy:			<none>
+Request params:	<none>
+Query params:	scope=InvalidValue
+Form params:	<none>
+Path params:	projectId=2510947
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510947
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510947
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510949/releases
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510949
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510949
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510949
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510952/releases?with_state=accepted
+Proxy:			<none>
+Request params:	<none>
+Query params:	with_state=accepted
+Form params:	<none>
+Path params:	projectId=2510952
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510952
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510952
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510955/releases?with_state=InvalidValue
+Proxy:			<none>
+Request params:	<none>
+Query params:	with_state=InvalidValue
+Form params:	<none>
+Path params:	projectId=2510955
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510955
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510955
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510958/releases?with_state=planned
+Proxy:			<none>
+Request params:	<none>
+Query params:	with_state=planned
+Form params:	<none>
+Path params:	projectId=2510958
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510958
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510958
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510960/releases?with_state=unscheduled
+Proxy:			<none>
+Request params:	<none>
+Query params:	with_state=unscheduled
+Form params:	<none>
+Path params:	projectId=2510960
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510960
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510960
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510961/releases?with_state=unstarted
+Proxy:			<none>
+Request params:	<none>
+Query params:	with_state=unstarted
+Form params:	<none>
+Path params:	projectId=2510961
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510961
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510961
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510963
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510963
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510963
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510963
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	https://www.pivotaltracker.com/services/v5/projects
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "name": "My Test Project"
+}
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510965
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510965
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "id": 2510965,
+    "kind": "project",
+    "name": "My Test Project",
+    "version": 1,
+    "iteration_length": 1,
+    "week_start_day": "Monday",
+    "point_scale": "0,1,2,3",
+    "point_scale_is_custom": false,
+    "bugs_and_chores_are_estimatable": false,
+    "automatic_planning": true,
+    "enable_tasks": true,
+    "time_zone": {
+        "kind": "time_zone",
+        "olson_name": "America/Los_Angeles",
+        "offset": "-07:00"
+    },
+    "velocity_averaged_over": 3,
+    "number_of_done_iterations_to_show": 4,
+    "has_google_domain": false,
+    "enable_incoming_emails": true,
+    "initial_velocity": 10,
+    "public": false,
+    "atom_enabled": false,
+    "project_type": "private",
+    "start_time": "2021-06-14T07:00:00Z",
+    "created_at": "2021-06-19T20:40:57Z",
+    "updated_at": "2021-06-19T20:40:57Z",
+    "account_id": 1155191,
+    "current_iteration_number": 1,
+    "enable_following": true
+}
+Request method:	DELETE
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/2510965
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=2510965
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	GET
+Request URI:	https://www.pivotaltracker.com/services/v5/projects/InvalidId
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	projectId=InvalidId
+Headers:		X-TrackerToken=5b2cc4a0843310f32148a88918bda460
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

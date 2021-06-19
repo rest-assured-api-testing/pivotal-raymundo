@@ -12,8 +12,8 @@ entities/PivotalProject.java
  entities.PivotalProject
 entities/AccountMembership.java
  entities.AccountMembership
-entities/Stories.java
- entities.Stories
+entities/ReadPropertyFile.java
+ entities.ReadPropertyFile
 entities/Epics.java
  entities.Epics
 entities/Activity.java
@@ -26,5 +26,3 @@ api/ApiManager.java
  api.ApiManager
 entities/Person.java
  entities.Person
-entities/ReadPropertyFile.java
- entities.ReadPropertyFile

@@ -48,6 +48,134 @@ public class PivotalProjectsTests {
     }
 
     @Test(groups = "getProject")
+    public void getSingleProjectIterations() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithDoneScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "done");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithCurrentScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "current");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithBacklogScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "backlog");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithCurrentBacklogScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "current_backlog");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithDoneCurrentScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "done_current");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectIterationsWithInvalidScope() {
+        apiRequest.setEndpoint("/projects/{projectId}/iterations");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("scope", "InvalidValue");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleases() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithAcceptedState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "accepted");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithUnstartedState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "unstarted");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithUnscheduledState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "unscheduled");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithPlanedState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "planned");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getProject")
+    public void getSingleProjectReleasesWithInvalidState() {
+        apiRequest.setEndpoint("/projects/{projectId}/releases");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_state", "InvalidValue");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "getProject")
     public void getSingleProjectTestSchema() {
         apiRequest.setEndpoint("/projects/{projectId}");
         apiRequest.setMethod(ApiMethod.GET);
@@ -130,9 +258,79 @@ public class PivotalProjectsTests {
     public void createSingleProjectWithInvalidWeekStartDay() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
         pivotalProject.setName("My test project");
-        pivotalProject.setWeek_start_day("Mon");
+        pivotalProject.setWeek_start_day("InvalidValue");
         ApiResponse apiResponse = createProject(pivotalProject);
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithSundayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Sunday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithMondayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Monday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithTuesdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Tuesday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithWednesdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Wednesday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithThursdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Thursday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithFridayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Friday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithSaturdayWeekStartDay() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setWeek_start_day("Saturday");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
     @Test

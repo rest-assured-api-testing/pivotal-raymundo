@@ -1,7 +1,7 @@
 AccountMembershipTests.java
  AccountMembershipTests
-EpicsTests.java
- EpicsTests
+WorkspacesTests.java
+ WorkspacesTests
 ActivityTests.java
  ActivityTests
 PivotalProjectsTests.java
@@ -10,7 +10,5 @@ AccountTests.java
  AccountTests
 LabelsTests.java
  LabelsTests
-StoriesTests.java
- StoriesTests
-WorkspacesTests.java
- WorkspacesTests
+EpicsTests.java
+ EpicsTests
