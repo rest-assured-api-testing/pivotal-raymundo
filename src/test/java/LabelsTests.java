@@ -32,6 +32,9 @@ public class LabelsTests {
     PivotalProject project = new PivotalProject();
     Labels label = new Labels();
 
+    /**
+     * Sets the token and base URI for the Requests
+     */
     @BeforeTest
     public void setTokenAndBaseUri() {
         apiRequest = new ApiRequest();
@@ -40,12 +43,19 @@ public class LabelsTests {
         apiRequest.setBaseUri(readPropertyFile.getBaseUri());
     }
 
+    /**
+     * Cleans the previous values between tests
+     */
     @AfterMethod
     public void clearPathParamValues() {
         apiRequest.cleanPathParam();
         apiRequest.cleanQueryParam();
     }
 
+    /**
+     * Creates a project and a label for testing
+     * @throws JsonProcessingException
+     */
     @BeforeMethod(onlyForGroups = "getLabel")
     public void createSingleProjectAndLabel() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
@@ -56,6 +66,9 @@ public class LabelsTests {
         label = createLabel(newLabel, project.getId().toString()).getBody(Labels.class);
     }
 
+    /**
+     * Checks if a get request on a single label is ok
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProject() {
         apiRequest.setEndpoint("/projects/{projectId}/labels/{labelId}");
@@ -66,6 +79,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    /**
+     * Checks if a get request on a single label is ok with epic type
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProjectWithEpicType() {
         apiRequest.setEndpoint("/projects/{projectId}/labels");
@@ -76,6 +92,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    /**
+     * Checks if a get request on a single label is ok with standard type
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProjectWithStandardType() {
         apiRequest.setEndpoint("/projects/{projectId}/labels");
@@ -86,6 +105,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    /**
+     * Checks if a get request on a single label is invalid with invalid type
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProjectWithInvalidType() {
         apiRequest.setEndpoint("/projects/{projectId}/labels");
@@ -96,6 +118,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
+    /**
+     * Checks if a get request on a single label is ok with active status
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProjectWithActiveStatus() {
         apiRequest.setEndpoint("/projects/{projectId}/labels");
@@ -106,6 +131,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    /**
+     * Checks if a get request on a single label is ok with inactive status
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProjectWithInactiveStatus() {
         apiRequest.setEndpoint("/projects/{projectId}/labels");
@@ -116,6 +144,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
+    /**
+     * Checks if a get request on a single label is invalid with an invalid status value
+     */
     @Test(groups = "getLabel")
     public void getSingleLabelOnProjectWithInvalidStatus() {
         apiRequest.setEndpoint("/projects/{projectId}/labels");
@@ -194,12 +225,19 @@ public class LabelsTests {
         label = createLabel(newLabel, project.getId().toString()).getBody(Labels.class);
     }
 
+    /**
+     * Deletes the created label after test is done
+     */
     @Test(groups = "deleteLabel")
     public void deleteSingleLabel() {
         ApiResponse apiResponse = deleteLabel(label.getId().toString(), project.getId().toString());
         Assert.assertEquals(apiResponse.getStatusCode(), 204);
     }
 
+    /**
+     * Checks if a label post request with an empty name is invalid
+     * @throws JsonProcessingException
+     */
     @Test(groups = "deleteLabel")
     public void createLabelWithEmptyName() throws JsonProcessingException {
         Labels newLabel = new Labels();
@@ -209,6 +247,10 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
+    /**
+     * Checks if a label post request with a null name is invalid
+     * @throws JsonProcessingException
+     */
     @Test(groups = "deleteLabel")
     public void createLabelWithNullName() throws JsonProcessingException {
         Labels newLabel = new Labels();
@@ -218,6 +260,10 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
+    /**
+     * Checks if a label post request with a repeated name is invalid
+     * @throws JsonProcessingException
+     */
     @Test(groups = "deleteLabel")
     public void createLabelWithRepeatedName() throws JsonProcessingException {
         Labels newLabel = new Labels();
@@ -227,6 +273,10 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
+    /**
+     * Checks if a label post request with a name larger than 255 character's is invalid
+     * @throws JsonProcessingException
+     */
     @Test(groups = "deleteLabel")
     public void createLabelWithNameLongerThan255Characters() throws JsonProcessingException {
         Labels newLabel = new Labels();
@@ -238,6 +288,9 @@ public class LabelsTests {
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
+    /**
+     * Deletes created project after test is done
+     */
     @AfterMethod(onlyForGroups = "deleteLabel")
     public void deleteCreatedProjectAndLabelOnGroupDeleteLabel() {
         ApiResponse apiResponse = PivotalProjectsTests.deleteProject(project.getId().toString());
