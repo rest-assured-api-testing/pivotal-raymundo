@@ -1,3 +1,14 @@
+/**
+ * Copyright (c) 2021 Fundacion Jala.
+ *
+ * This software is the confidential and proprietary information of Fundacion Jala
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with Fundacion Jala
+ *
+ * @author Raymundo Guaraguara Sansusty
+ */
+
 import api.ApiManager;
 import api.ApiMethod;
 import api.ApiRequest;
@@ -13,6 +24,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+/**
+ * A class to make the tests for the Labels
+ */
 public class LabelsTests {
     private ApiRequest apiRequest;
     PivotalProject project = new PivotalProject();
@@ -229,6 +243,13 @@ public class LabelsTests {
         ApiResponse apiResponse = PivotalProjectsTests.deleteProject(project.getId().toString());
     }
 
+    /**
+     * Makes the post request to create a label
+     * @param label an object with the label's fields
+     * @param projectId a String with the project's id
+     * @return the API's response
+     * @throws JsonProcessingException
+     */
     public static ApiResponse createLabel(Labels label, String projectId) throws JsonProcessingException {
         ApiRequest apiRequest = new ApiRequest();
         apiRequest = PivotalProjectsTests.configureTokenAndBaseUri(apiRequest);
@@ -240,6 +261,12 @@ public class LabelsTests {
         return apiResponse;
     }
 
+    /**
+     * Makes the delete request to delete a label
+     * @param labelId a String with the label's id
+     * @param projectId a String with the project's id
+     * @return the API's response
+     */
     public static ApiResponse deleteLabel(String labelId, String projectId) {
         ApiRequest apiRequest = new ApiRequest();
         apiRequest = PivotalProjectsTests.configureTokenAndBaseUri(apiRequest);
