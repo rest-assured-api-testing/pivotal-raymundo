@@ -22,6 +22,12 @@ public class PivotalProjectsTests {
         apiRequest = configureTokenAndBaseUri(apiRequest);
     }
 
+    @AfterMethod
+    public void clearPathParamValues() {
+        apiRequest.cleanPathParam();
+        apiRequest.cleanQueryParam();
+    }
+
     @BeforeMethod(onlyForGroups = "getProject")
     public void createProjects() throws JsonProcessingException {
         PivotalProject pivotalProject = new PivotalProject();
@@ -153,6 +159,61 @@ public class PivotalProjectsTests {
         pivotalProject.setName("Long tittle example to test more than 50 characters");
         ApiResponse apiResponse = createProject(pivotalProject);
         Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidMonthStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-13-15T21:42:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidDayStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T21:42:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidHourStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T25:42:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidMinuteStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T21:61:52Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test
+    public void createSingleProjectWithInvalidSecondStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-32T21:45:61Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "createProject")
+    public void createSingleProjectWithValidStartDate() throws JsonProcessingException {
+        PivotalProject pivotalProject = new PivotalProject();
+        pivotalProject.setName("My test project");
+        pivotalProject.setStart_date("2021-06-14T07:00:00Z");
+        ApiResponse apiResponse = createProject(pivotalProject);
+        project = apiResponse.getBody(PivotalProject.class);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
     @Test

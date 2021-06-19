@@ -29,6 +29,7 @@ public class LabelsTests {
     @AfterMethod
     public void clearPathParamValues() {
         apiRequest.cleanPathParam();
+        apiRequest.cleanQueryParam();
     }
 
     @BeforeMethod(onlyForGroups = "getLabel")
@@ -49,6 +50,66 @@ public class LabelsTests {
         apiRequest.addPathParam("labelId", label.getId().toString());
         ApiResponse apiResponse = ApiManager.execute(apiRequest);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getLabel")
+    public void getSingleLabelOnProjectWithEpicType() {
+        apiRequest.setEndpoint("/projects/{projectId}/labels");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_type", "epic");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getLabel")
+    public void getSingleLabelOnProjectWithStandardType() {
+        apiRequest.setEndpoint("/projects/{projectId}/labels");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_type", "standard");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getLabel")
+    public void getSingleLabelOnProjectWithInvalidType() {
+        apiRequest.setEndpoint("/projects/{projectId}/labels");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_type", "InvalidValue");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
+    }
+
+    @Test(groups = "getLabel")
+    public void getSingleLabelOnProjectWithActiveStatus() {
+        apiRequest.setEndpoint("/projects/{projectId}/labels");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_status", "active");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getLabel")
+    public void getSingleLabelOnProjectWithInactiveStatus() {
+        apiRequest.setEndpoint("/projects/{projectId}/labels");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_status", "inactive");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 200);
+    }
+
+    @Test(groups = "getLabel")
+    public void getSingleLabelOnProjectWithInvalidStatus() {
+        apiRequest.setEndpoint("/projects/{projectId}/labels");
+        apiRequest.setMethod(ApiMethod.GET);
+        apiRequest.addPathParam("projectId", project.getId().toString());
+        apiRequest.addQueryParam("with_status", "InvalidValue");
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
+        Assert.assertEquals(apiResponse.getStatusCode(), 400);
     }
 
     @Test(groups = "getLabel")
